@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MapleTrust Bank Dashboard</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="assets/logo.png" alt="MapleTrust Bank Logo">
+      <h1>MapleTrust Bank</h1>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html" class="active">Dashboard</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="investments.html">Investments</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="account-summary">
+      <h2>Welcome, Zachary R Nichols</h2>
+      <p>
+        Account No.: <strong>123456789012</strong><br>
+        Branch No.: <strong>12345</strong> | Institution No.: <strong>001</strong><br>
+        SWIFT: <strong>MTBKCA123</strong>
+      </p>
+
+      <div class="balances">
+        <div class="card">
+          <h3>Checking</h3>
+          <p id="checkingBalance" class="amount">$35,145.32</p>
+        </div>
+        <div class="card">
+          <h3>Savings</h3>
+          <p id="savingsBalance" class="amount">$37,482.67</p>
+        </div>
+      </div>
+
+      <div class="net-worth">
+        <h3>Total Net Worth</h3>
+        <p id="netWorth" class="amount">$72,628.00</p>
+      </div>
+    </section>
+
+    <section class="quick-actions">
+      <button id="transferBtn">Transfer Funds</button>
+      <button id="downloadStatementBtn">Download PDF Statement</button>
+    </section>
+
+    <section class="chart-section">
+      <h2>TechStock (TSTR) — Last 30 Days</h2>
+      <canvas id="dashboardChart"></canvas>
+    </section>
+  </main>
+
+  <!-- Transfer Modal -->
+  <div id="transferModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Transfer Funds</h2>
+      <form id="transferForm">
+        <div class="form-group">
+          <label for="toAccount">To Account Number</label>
+          <input type="text" id="toAccount" required>
+        </div>
+        <div class="form-group">
+          <label for="transferAmount">Amount (CAD)</label>
+          <input type="number" id="transferAmount" min="0.01" step="0.01" required>
+        </div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 MapleTrust Bank. All rights reserved.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
 
